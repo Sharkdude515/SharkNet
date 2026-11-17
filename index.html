@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> | Eaglercraft Server & Mods</title>
+    <title>SharkNet | Eaglercraft 26.2 Server & Mods</title>
     <style>
+        /* =========================================
+           THEME COLORS (Blue, Black, Subtle Purple)
+           ========================================= */
         :root {
             --bg-black: #05070e;
             --bg-card: #0b1021;
@@ -17,9 +20,12 @@
             --purple-subtle: rgba(124, 58, 237, 0.15);
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
-            --border-color: rgba(59, 130, 246, 0.22);
+            --border-color: rgba(59, 130, 246, 0.25);
         }
 
+        /* =========================================
+           BASE & LAYOUT
+           ========================================= */
         * {
             margin: 0;
             padding: 0;
@@ -42,23 +48,21 @@
                 radial-gradient(circle at 50% 95%, rgba(29, 78, 216, 0.14) 0%, transparent 50%);
         }
 
+        /* =========================================
+           NAVIGATION
+           ========================================= */
         header {
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
-            background: rgba(5, 7, 14, 0.88);
+            background: rgba(5, 7, 14, 0.9);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border-color);
-            transition: box-shadow 0.3s ease;
-        }
-
-        header.scrolled {
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
         }
 
         .nav-container {
-            max-width: 1200px;
+            max-width: 1150px;
             margin: 0 auto;
             padding: 1.1rem 2rem;
             display: flex;
@@ -90,7 +94,7 @@
             text-decoration: none;
             font-weight: 500;
             font-size: 0.95rem;
-            transition: color 0.3s ease;
+            transition: color 0.25s ease;
         }
 
         .nav-links a:hover {
@@ -100,18 +104,15 @@
         .nav-links .nav-btn {
             background: var(--blue-primary);
             color: var(--text-main);
-            padding: 0.6rem 1.3rem;
+            padding: 0.55rem 1.2rem;
             border-radius: 6px;
             font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
             border: 1px solid var(--blue-bright);
         }
 
         .nav-links .nav-btn:hover {
             background: var(--blue-bright);
-            color: var(--text-main);
-            box-shadow: 0 0 20px var(--blue-glow);
+            box-shadow: 0 0 18px var(--blue-glow);
         }
 
         .menu-toggle {
@@ -123,17 +124,20 @@
             cursor: pointer;
         }
 
+        /* =========================================
+           HERO SECTION
+           ========================================= */
         .hero {
-            min-height: 95vh;
+            min-height: 85vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 8rem 2rem 4rem;
+            padding: 8rem 2rem 3rem;
         }
 
         .hero-content {
-            max-width: 820px;
+            max-width: 780px;
         }
 
         .badge {
@@ -143,18 +147,17 @@
             font-size: 0.8rem;
             font-weight: 700;
             letter-spacing: 0.8px;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.4rem;
             background: rgba(29, 78, 216, 0.15);
             border: 1px solid rgba(59, 130, 246, 0.4);
             color: var(--blue-bright);
         }
 
         .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4.4rem);
+            font-size: clamp(2.5rem, 6vw, 4.2rem);
             font-weight: 800;
             line-height: 1.15;
-            margin-bottom: 1.5rem;
-            letter-spacing: -1px;
+            margin-bottom: 1.2rem;
         }
 
         .gradient-text {
@@ -165,11 +168,12 @@
 
         .hero p {
             color: var(--text-muted);
-            font-size: 1.15rem;
-            max-width: 620px;
+            font-size: 1.1rem;
+            max-width: 600px;
             margin: 0 auto 2rem;
         }
 
+        /* Click-to-Copy IP Box */
         .ip-box {
             display: inline-flex;
             align-items: center;
@@ -178,33 +182,30 @@
             border: 1px solid rgba(59, 130, 246, 0.45);
             padding: 0.85rem 1.4rem;
             border-radius: 10px;
-            margin-bottom: 2.2rem;
+            margin-bottom: 2rem;
             cursor: pointer;
             transition: all 0.25s ease;
-            box-shadow: 0 0 25px rgba(29, 78, 216, 0.15);
         }
 
         .ip-box:hover {
             border-color: var(--blue-bright);
             background: var(--bg-card-hover);
-            box-shadow: 0 0 30px var(--blue-glow);
-            transform: translateY(-2px);
+            box-shadow: 0 0 25px var(--blue-glow);
         }
 
         .status-dot {
             width: 10px;
             height: 10px;
-            background-color: #3b82f6;
+            background-color: var(--blue-bright);
             border-radius: 50%;
-            box-shadow: 0 0 10px #3b82f6;
+            box-shadow: 0 0 10px var(--blue-bright);
         }
 
         .ip-box code {
             font-family: "Courier New", Courier, monospace;
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             font-weight: 700;
             color: var(--text-main);
-            letter-spacing: 0.5px;
         }
 
         .copy-tag {
@@ -214,8 +215,6 @@
             font-weight: 700;
             padding: 0.3rem 0.65rem;
             border-radius: 6px;
-            letter-spacing: 0.5px;
-            transition: all 0.2s ease;
         }
 
         .ip-box.copied .copy-tag {
@@ -233,13 +232,12 @@
         .btn-primary {
             background: linear-gradient(135deg, var(--blue-primary) 75%, var(--purple-accent) 100%);
             color: var(--text-main);
-            padding: 0.9rem 2rem;
+            padding: 0.85rem 1.8rem;
             border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 1rem;
-            transition: transform 0.2s ease, box-shadow 0.3s ease;
             border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.2s ease, box-shadow 0.3s ease;
         }
 
         .btn-primary:hover {
@@ -250,13 +248,12 @@
         .btn-secondary {
             background: var(--bg-card);
             color: var(--text-main);
-            padding: 0.9rem 2rem;
+            padding: 0.85rem 1.8rem;
             border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 1rem;
             border: 1px solid var(--border-color);
-            transition: all 0.3s ease;
+            transition: all 0.25s ease;
         }
 
         .btn-secondary:hover {
@@ -264,20 +261,23 @@
             background: var(--bg-card-hover);
         }
 
+        /* =========================================
+           SECTIONS & HEADERS
+           ========================================= */
         section {
-            padding: 5.5rem 2rem;
-            max-width: 1200px;
+            padding: 4.5rem 2rem;
+            max-width: 1150px;
             margin: 0 auto;
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
         }
 
         .section-header h2 {
-            font-size: 2.25rem;
-            margin-bottom: 0.75rem;
+            font-size: 2.1rem;
+            margin-bottom: 0.5rem;
         }
 
         .section-header p {
@@ -286,79 +286,102 @@
             margin: 0 auto;
         }
 
+        /* =========================================
+           CLIENT DOWNLOAD & CREDITS BOX
+           ========================================= */
+        .client-box {
+            background: linear-gradient(145deg, #0b1021 0%, #090d1c 75%, #140e29 100%);
+            border: 1px solid rgba(59, 130, 246, 0.35);
+            border-radius: 14px;
+            padding: 2.2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .client-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .client-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .client-info p {
+            color: var(--text-muted);
+            max-width: 620px;
+        }
+
+        .credit-notice {
+            background: rgba(5, 7, 14, 0.75);
+            border-left: 3px solid var(--purple-accent);
+            padding: 1rem 1.25rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .credit-notice strong {
+            color: var(--text-main);
+        }
+
+        /* =========================================
+           FILTER TABS & EMPTY MOD SLOTS
+           ========================================= */
         .filter-tabs {
             display: flex;
             justify-content: center;
             gap: 0.75rem;
             flex-wrap: wrap;
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
         }
 
         .filter-btn {
             background: var(--bg-card);
             color: var(--text-muted);
             border: 1px solid var(--border-color);
-            padding: 0.55rem 1.2rem;
+            padding: 0.5rem 1.1rem;
             border-radius: 8px;
             font-size: 0.9rem;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.25s ease;
+            transition: all 0.2s ease;
         }
 
-        .filter-btn:hover {
-            border-color: var(--blue-bright);
-            color: var(--text-main);
-        }
-
+        .filter-btn:hover,
         .filter-btn.active {
             background: var(--blue-primary);
             border-color: var(--blue-bright);
             color: var(--text-main);
-            box-shadow: 0 0 15px var(--blue-glow);
         }
 
-        .mods-grid,
-        .features-grid {
+        .mods-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
-            gap: 1.75rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
         }
 
-        .card {
+        .mod-card {
             background: var(--bg-card);
-            border: 1px solid var(--border-color);
+            border: 1px dashed rgba(59, 130, 246, 0.35);
             border-radius: 12px;
-            padding: 1.85rem;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
+            padding: 1.6rem;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            transition: all 0.25s ease;
         }
 
-        .card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, var(--blue-bright) 75%, var(--purple-accent) 100%);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
+        .mod-card:hover {
+            border-style: solid;
+            border-color: var(--blue-bright);
             background: var(--bg-card-hover);
-            border-color: rgba(59, 130, 246, 0.5);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-        }
-
-        .card:hover::before {
-            opacity: 1;
+            transform: translateY(-4px);
         }
 
         .mod-card.hidden {
@@ -369,24 +392,17 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 1rem;
+            margin-bottom: 0.9rem;
         }
 
         .mod-tag {
             font-size: 0.72rem;
             font-weight: 700;
-            letter-spacing: 0.5px;
-            padding: 0.25rem 0.65rem;
+            padding: 0.25rem 0.6rem;
             border-radius: 5px;
             background: rgba(29, 78, 216, 0.2);
             color: var(--blue-bright);
             border: 1px solid rgba(59, 130, 246, 0.3);
-        }
-
-        .mod-tag.purple-tag {
-            background: rgba(124, 58, 237, 0.18);
-            color: var(--purple-bright);
-            border-color: rgba(124, 58, 237, 0.35);
         }
 
         .mod-version {
@@ -394,35 +410,33 @@
             color: var(--text-muted);
         }
 
-        .card h3 {
-            font-size: 1.25rem;
-            margin-bottom: 0.65rem;
+        .mod-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.35rem;
         }
 
-        .card p {
+        .mod-author {
+            font-size: 0.82rem;
+            color: var(--purple-bright);
+            margin-bottom: 0.75rem;
+        }
+
+        .mod-card p {
             color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .card p code {
-            background: var(--bg-black);
-            padding: 0.15rem 0.4rem;
-            border-radius: 4px;
-            color: var(--blue-bright);
-            font-size: 0.85rem;
+            font-size: 0.92rem;
+            margin-bottom: 1.4rem;
         }
 
         .mod-footer {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding-top: 1rem;
-            border-top: 1px solid rgba(59, 130, 246, 0.12);
+            padding-top: 0.9rem;
+            border-top: 1px solid rgba(59, 130, 246, 0.15);
         }
 
         .file-size {
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             color: var(--text-muted);
             font-family: monospace;
         }
@@ -431,10 +445,10 @@
             background: rgba(29, 78, 216, 0.2);
             color: var(--blue-bright);
             border: 1px solid rgba(59, 130, 246, 0.4);
-            padding: 0.45rem 1rem;
+            padding: 0.45rem 0.95rem;
             border-radius: 6px;
             text-decoration: none;
-            font-size: 0.88rem;
+            font-size: 0.85rem;
             font-weight: 600;
             transition: all 0.2s ease;
         }
@@ -442,113 +456,61 @@
         .download-btn:hover {
             background: var(--blue-primary);
             color: var(--text-main);
-            box-shadow: 0 0 15px var(--blue-glow);
         }
 
-        .card-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 10px;
-            background: rgba(29, 78, 216, 0.2);
-            border: 1px solid rgba(59, 130, 246, 0.3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--blue-bright);
-            font-size: 1.4rem;
-            margin-bottom: 1.25rem;
-        }
-
-        .features-grid .card:nth-child(2) .card-icon {
-            background: rgba(124, 58, 237, 0.15);
-            border-color: rgba(124, 58, 237, 0.35);
-            color: var(--purple-bright);
-        }
-
-        .stats-banner {
-            background: linear-gradient(145deg, #0b1021 0%, #090d1c 70%, #140e29 100%);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 3.2rem 2rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 2rem;
-            text-align: center;
-        }
-
-        .stat-item h4 {
-            font-size: 2.3rem;
-            font-weight: 800;
-            color: var(--blue-bright);
-            margin-bottom: 0.4rem;
-        }
-
-        .stat-item:last-child h4 {
-            color: var(--purple-bright);
-        }
-
-        .stat-item p {
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .rules-box {
-            max-width: 800px;
-            margin: 0 auto;
+        /* =========================================
+           BLANK CUSTOM SECTION (RULES / ABOUT / INFO)
+           ========================================= */
+        .blank-box {
             background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 2.5rem;
-        }
-
-        .rules-list {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 1.2rem;
-        }
-
-        .rules-list li {
+            border: 1px dashed var(--border-color);
+            border-radius: 14px;
+            padding: 2.2rem;
             color: var(--text-muted);
-            padding-bottom: 1.2rem;
-            border-bottom: 1px solid rgba(59, 130, 246, 0.12);
         }
 
-        .rules-list li:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
-        }
-
-        .rules-list strong {
+        .blank-box h3 {
             color: var(--text-main);
+            margin-bottom: 0.75rem;
         }
 
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
+        /* =========================================
+           FOOTER & LEGAL DISCLAIMER
+           ========================================= */
         footer {
             border-top: 1px solid var(--border-color);
             padding: 3rem 2rem;
+            margin-top: 3rem;
+            background: rgba(5, 7, 14, 0.95);
+        }
+
+        .footer-inner {
+            max-width: 1150px;
+            margin: 0 auto;
             text-align: center;
             color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-top: 3rem;
+            font-size: 0.88rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
         }
 
-        footer span {
+        .footer-inner span {
             color: var(--blue-bright);
+            font-weight: 700;
         }
 
+        .legal-text {
+            max-width: 850px;
+            margin: 0 auto;
+            font-size: 0.8rem;
+            line-height: 1.5;
+            color: #64748b;
+        }
+
+        /* =========================================
+           MOBILE RESPONSIVE
+           ========================================= */
         @media (max-width: 768px) {
             .menu-toggle {
                 display: block;
@@ -561,8 +523,8 @@
                 width: 100%;
                 background: rgba(5, 7, 14, 0.98);
                 flex-direction: column;
-                padding: 2rem;
-                gap: 1.5rem;
+                padding: 1.5rem;
+                gap: 1.2rem;
                 border-bottom: 1px solid var(--border-color);
                 display: none;
             }
@@ -570,219 +532,212 @@
             .nav-links.active {
                 display: flex;
             }
-
-            .ip-box code {
-                font-size: 0.95rem;
-            }
-
-            .rules-box {
-                padding: 1.75rem;
-            }
         }
     </style>
 </head>
 <body>
 
+    <!-- =========================================
+         1. NAVIGATION BAR
+         ========================================= -->
     <header>
         <div class="nav-container">
-            <a href="#" class="logo">VOID<span>NET</span></a>
+            <a href="#" class="logo">SHARK<span>NET</span></a>
             
-            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
-                &#9776;
-            </button>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">&#9776;</button>
 
             <ul class="nav-links" id="nav-links">
-                <li><a href="#mods">Mods & Clients</a></li>
-                <li><a href="#features">Server Info</a></li>
-                <li><a href="#rules">Rules</a></li>
-                <li><a href="#play" class="nav-btn">Play in Browser</a></li>
+                <li><a href="#client">Client 26.2</a></li>
+                <li><a href="#mods">Mods</a></li>
+                <li><a href="#info">Server Info</a></li>
+                <!-- [EDIT LINK]: Put your Discord or Web Client URL in href="..." -->
+                <li><a href="#" class="nav-btn">[YOUR BUTTON TEXT]</a></li>
             </ul>
         </div>
     </header>
 
-    <section class="hero" id="play">
-        <div class="hero-content fade-in">
-            <div class="badge">EAGLERCRAFT 26.2</div>
-            <h1>Next-Level <span class="gradient-text">Eaglercraft</span> PvP & Survival</h1>
-            <p>Jump straight into low-latency duels, custom factions, and modded gameplay directly from your browser. Copy the WebSocket IP below to join.</p>
+    <!-- =========================================
+         2. HERO SECTION (EDIT YOUR TAGLINE & IP)
+         ========================================= -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="badge">EAGLERCRAFT 26.2 &bull; OPERATED BY SHARKDUDE515</div>
             
+            <h1>Welcome to <span class="gradient-text">SharkNet</span></h1>
+            
+            <!-- [EDIT TEXT]: Write your own server description below -->
+            <p>[Write a short description of your Eaglercraft 26.2 server here.]</p>
+            
+            <!-- [EDIT IP]: Replace wss://play.sharknet.gg with your real WebSocket IP -->
             <div class="ip-box" id="copy-ip-btn" title="Click to copy Server IP">
                 <span class="status-dot"></span>
-                <code id="server-ip">wss://play.voidnet.gg</code>
+                <code id="server-ip">wss://play.sharknet.gg</code>
                 <span class="copy-tag" id="copy-tag">COPY IP</span>
             </div>
 
             <div class="hero-buttons">
-                <a href="#mods" class="btn-primary">Download Mods</a>
-                <a href="#features" class="btn-secondary">How to Install</a>
+                <a href="#client" class="btn-primary">Get Eaglercraft 26.2</a>
+                <a href="#mods" class="btn-secondary">Browse Mods</a>
             </div>
         </div>
     </section>
 
-    <section id="mods">
-        <div class="section-header fade-in">
-            <h2>Official Server Mods</h2>
-            <p>Approved Eaglerforge mods and custom clients built for maximum FPS and clean PvP visuals.</p>
+    <!-- =========================================
+         3. EAGLERCRAFT 26.2 DOWNLOAD & CREDITS
+         ========================================= -->
+    <section id="client">
+        <div class="section-header">
+            <h2>Eaglercraft 26.2 Client</h2>
+            <p>Download the client to connect to SharkNet.</p>
         </div>
 
-        <div class="filter-tabs fade-in">
-            <button class="filter-btn active" data-filter="all">All Mods</button>
-            <button class="filter-btn" data-filter="fps">FPS & Performance</button>
-            <button class="filter-btn" data-filter="pvp">PvP & HUD</button>
+        <div class="client-box">
+            <div class="client-top">
+                <div class="client-info">
+                    <h3>Eaglercraft 26.2</h3>
+                    <!-- [EDIT TEXT]: Add any quick notes about your client file/link -->
+                    <p>[Add download notes or instructions here.]</p>
+                </div>
+                
+                <!-- [EDIT LINK]: Replace # with your client file path (e.g., "clients/eaglercraft-26.2.html") or official link -->
+                <a href="#" download class="btn-primary">&#8681; Download 26.2</a>
+            </div>
+
+            <div class="credit-notice">
+                <strong>Credits &amp; Attribution:</strong> Eaglercraft 26.2 was created and developed by the talented coders at <strong>Eaglercraft</strong> (originally created by <strong>lax1dude</strong> and contributors). <strong>SharkNet</strong> and <strong>sharkdude515</strong> did <strong>not</strong> make, code, or own Eaglercraft. All credit for the game client belongs strictly to the Eaglercraft developers. You must own a legal copy of Minecraft: Java Edition to use Eaglercraft.
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================
+         4. EMPTY MOD SLOTS (FILL IN YOUR MODS)
+         ========================================= -->
+    <section id="mods">
+        <div class="section-header">
+            <h2>Mods Directory</h2>
+            <p>Mods uploaded for Eaglercraft 26.2.</p>
+        </div>
+
+        <!-- Category Filter Buttons (Match data-filter to data-category on each card) -->
+        <div class="filter-tabs">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="fps">FPS</button>
+            <button class="filter-btn" data-filter="pvp">PvP</button>
             <button class="filter-btn" data-filter="utility">Utility</button>
         </div>
 
-        <div class="mods-grid" id="mods-grid">
-            <div class="card mod-card fade-in" data-category="fps">
-                <div class="mod-top">
-                    <span class="mod-tag">FPS & PERFORMANCE</span>
-                    <span class="mod-version">v2.4 &bull; 1.8.8</span>
-                </div>
-                <h3>VoidBoost FPS</h3>
-                <p>Optimizes chunk rendering, disables unnecessary particle lag, and stabilizes frame rates on Chromebooks.</p>
-                <div class="mod-footer">
-                    <span class="file-size">142 KB (.js)</span>
-                    <a href="mods/voidboost-fps.js" download class="download-btn">&#8681; Download</a>
-                </div>
-            </div>
+        <div class="mods-grid">
 
-            <div class="card mod-card fade-in" data-category="pvp">
-                <div class="mod-top">
-                    <span class="mod-tag purple-tag">PVP & HUD</span>
-                    <span class="mod-version">v1.9 &bull; 1.8.8</span>
+            <!-- ========== MOD SLOT 1 (COPY & PASTE TO ADD MORE) ========== -->
+            <!-- Change data-category to "fps", "pvp", or "utility" -->
+            <div class="mod-card" data-category="fps">
+                <div>
+                    <div class="mod-top">
+                        <span class="mod-tag">[CATEGORY]</span>
+                        <span class="mod-version">26.2</span>
+                    </div>
+                    <h3>[Mod Name 1]</h3>
+                    <div class="mod-author">Created by: [Original Author]</div>
+                    <p>[Write what this mod does here.]</p>
                 </div>
-                <h3>Aether PvP HUD</h3>
-                <p>Adds clean Keystrokes, CPS counter, Armor Status, and ToggleSprint with customizable blue/purple themes.</p>
                 <div class="mod-footer">
-                    <span class="file-size">218 KB (.js)</span>
-                    <a href="mods/aether-pvp-hud.js" download class="download-btn">&#8681; Download</a>
+                    <span class="file-size">[00 KB]</span>
+                    <!-- Put your mod file in a "mods" folder and set href="mods/filename.js" -->
+                    <a href="#" download class="download-btn">&#8681; Download</a>
                 </div>
             </div>
+            <!-- ========== END MOD SLOT 1 ========== -->
 
-            <div class="card mod-card fade-in" data-category="pvp">
-                <div class="mod-top">
-                    <span class="mod-tag purple-tag">PVP & HUD</span>
-                    <span class="mod-version">v1.2 &bull; 1.8.8</span>
+            <!-- ========== MOD SLOT 2 ========== -->
+            <div class="mod-card" data-category="pvp">
+                <div>
+                    <div class="mod-top">
+                        <span class="mod-tag">[CATEGORY]</span>
+                        <span class="mod-version">26.2</span>
+                    </div>
+                    <h3>[Mod Name 2]</h3>
+                    <div class="mod-author">Created by: [Original Author]</div>
+                    <p>[Write what this mod does here.]</p>
                 </div>
-                <h3>LowFire & ClearWater</h3>
-                <p>Lowers first-person fire animations by 60% and removes underwater fog for cleaner crystal and sword fights.</p>
                 <div class="mod-footer">
-                    <span class="file-size">84 KB (.js)</span>
-                    <a href="mods/lowfire-clearwater.js" download class="download-btn">&#8681; Download</a>
+                    <span class="file-size">[00 KB]</span>
+                    <a href="#" download class="download-btn">&#8681; Download</a>
                 </div>
             </div>
+            <!-- ========== END MOD SLOT 2 ========== -->
 
-            <div class="card mod-card fade-in" data-category="utility">
-                <div class="mod-top">
-                    <span class="mod-tag">UTILITY</span>
-                    <span class="mod-version">v3.0 &bull; Eaglerforge</span>
+            <!-- ========== MOD SLOT 3 ========== -->
+            <div class="mod-card" data-category="utility">
+                <div>
+                    <div class="mod-top">
+                        <span class="mod-tag">[CATEGORY]</span>
+                        <span class="mod-version">26.2</span>
+                    </div>
+                    <h3>[Mod Name 3]</h3>
+                    <div class="mod-author">Created by: [Original Author]</div>
+                    <p>[Write what this mod does here.]</p>
                 </div>
-                <h3>Waypoint & Coords</h3>
-                <p>Save base coordinates, death points, and faction homes locally in your browser storage with minimap markers.</p>
                 <div class="mod-footer">
-                    <span class="file-size">195 KB (.js)</span>
-                    <a href="mods/waypoint-coords.js" download class="download-btn">&#8681; Download</a>
+                    <span class="file-size">[00 KB]</span>
+                    <a href="#" download class="download-btn">&#8681; Download</a>
                 </div>
             </div>
+            <!-- ========== END MOD SLOT 3 ========== -->
 
-            <div class="card mod-card fade-in" data-category="fps">
-                <div class="mod-top">
-                    <span class="mod-tag">FPS & PERFORMANCE</span>
-                    <span class="mod-version">v1.5 &bull; 1.8.8</span>
+            <!-- ========== MOD SLOT 4 ========== -->
+            <div class="mod-card" data-category="fps">
+                <div>
+                    <div class="mod-top">
+                        <span class="mod-tag">[CATEGORY]</span>
+                        <span class="mod-version">26.2</span>
+                    </div>
+                    <h3>[Mod Name 4]</h3>
+                    <div class="mod-author">Created by: [Original Author]</div>
+                    <p>[Write what this mod does here.]</p>
                 </div>
-                <h3>EntityCuller Lite</h3>
-                <p>Skips rendering hidden players, mobs, and item frames behind walls to boost FPS in crowded spawn hubs.</p>
                 <div class="mod-footer">
-                    <span class="file-size">110 KB (.js)</span>
-                    <a href="mods/entityculler-lite.js" download class="download-btn">&#8681; Download</a>
+                    <span class="file-size">[00 KB]</span>
+                    <a href="#" download class="download-btn">&#8681; Download</a>
                 </div>
             </div>
+            <!-- ========== END MOD SLOT 4 ========== -->
 
-            <div class="card mod-card fade-in" data-category="utility">
-                <div class="mod-top">
-                    <span class="mod-tag">UTILITY</span>
-                    <span class="mod-version">v2.1 &bull; 1.8.8</span>
-                </div>
-                <h3>Fullbright Toggle</h3>
-                <p>Press a single hotkey to light up dark caves and nether fortresses without needing torches or night vision.</p>
-                <div class="mod-footer">
-                    <span class="file-size">45 KB (.js)</span>
-                    <a href="mods/fullbright-toggle.js" download class="download-btn">&#8681; Download</a>
-                </div>
-            </div>
         </div>
     </section>
 
-    <section id="features">
-        <div class="section-header fade-in">
-            <h2>Server Features & Setup</h2>
-            <p>Built from the ground up for smooth hit registration and easy mod loading.</p>
+    <!-- =========================================
+         5. BLANK SERVER INFO / RULES SECTION
+         ========================================= -->
+    <section id="info">
+        <div class="section-header">
+            <h2>Server Info &amp; Rules</h2>
+            <p>Add your server rules, gamemodes, or mod install steps below.</p>
         </div>
 
-        <div class="features-grid">
-            <div class="card fade-in">
-                <div class="card-icon">&#9876;</div>
-                <h3>Crisp 1.8 PvP</h3>
-                <p>Custom knockback profiles, zero-delay potion splashing, and ranked 1v1 arenas with live ELO leaderboards.</p>
-            </div>
-
-            <div class="card fade-in">
-                <div class="card-icon">&#128268;</div>
-                <h3>Easy Eaglerforge Loading</h3>
-                <p>Download any <code>.js</code> mod above, open your Eaglerforge client menu, click "Load Mod", and select the file.</p>
-            </div>
-
-            <div class="card fade-in">
-                <div class="card-icon">&#128737;</div>
-                <h3>Custom Anti-Cheat</h3>
-                <p>Strict server-side checks block reach, killaura, and scaffold hacks while keeping legitimate high-CPS players safe.</p>
-            </div>
+        <div class="blank-box">
+            <h3>[Section Heading — e.g., Rules or How to Install Mods]</h3>
+            <p>[Write your own text, rules list, or Discord contact info here.]</p>
         </div>
     </section>
 
-    <section id="stats">
-        <div class="stats-banner fade-in">
-            <div class="stat-item">
-                <h4>20.0 TPS</h4>
-                <p>Dedicated Hardware</p>
-            </div>
-            <div class="stat-item">
-                <h4>1.8.8</h4>
-                <p>EaglercraftX Core</p>
-            </div>
-            <div class="stat-item">
-                <h4>15+</h4>
-                <p>Verified Mods</p>
-            </div>
-            <div class="stat-item">
-                <h4>24/7</h4>
-                <p>Online Uptime</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="rules">
-        <div class="section-header fade-in">
-            <h2>Server Rules</h2>
-            <p>Keep the gameplay fair and fun for everyone on the network.</p>
-        </div>
-
-        <div class="rules-box fade-in">
-            <ul class="rules-list">
-                <li><strong>1. Approved Mods Only:</strong> Only use visual, HUD, and FPS mods listed on this page. Hacked clients or X-Ray packs result in an instant ban.</li>
-                <li><strong>2. No Exploiting:</strong> Do not abuse chunk glitches, item dupes, or WebSocket packet exploits. Report bugs for in-game rewards.</li>
-                <li><strong>3. Respect Chat:</strong> Keep chat clean. Spamming, advertising other servers, or sharing personal info is prohibited.</li>
-                <li><strong>4. Alt Limits:</strong> Maximum of 2 accounts per IP address to prevent rank boosting and faction over-claiming.</li>
-            </ul>
-        </div>
-    </section>
-
+    <!-- =========================================
+         6. FOOTER & LEGAL DISCLAIMERS
+         ========================================= -->
     <footer>
-        <p>&copy; 2026 <span>VOIDNET</span> Eaglercraft Network. Not affiliated with Mojang or Microsoft.</p>
+        <div class="footer-inner">
+            <p>&copy; 2026 <span>SharkNet</span> &bull; Run by <span>sharkdude515</span></p>
+            <p class="legal-text">
+                <strong>Disclaimer:</strong> SharkNet is an independent, fan-run server and mod hub operated by sharkdude515. SharkNet is NOT affiliated with, endorsed by, or associated with Mojang Studios, Microsoft Corporation, or the official Eaglercraft development team. "Minecraft" is a trademark of Mojang Studios. Eaglercraft 26.2 and all listed mods belong to their respective creators and are provided "as-is" without warranty. If you are a developer or rights holder and want any file or link removed, contact <strong>sharkdude515</strong> for prompt removal.
+            </p>
+        </div>
     </footer>
 
+    <!-- =========================================
+         JAVASCRIPT (IP COPY, FILTER TABS, MOBILE MENU)
+         ========================================= -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Mobile Navigation Toggle
             const menuToggle = document.getElementById('menu-toggle');
             const navLinks = document.getElementById('nav-links');
 
@@ -796,15 +751,7 @@
                 });
             });
 
-            const header = document.querySelector('header');
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 30) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
-                }
-            });
-
+            // One-Click Copy Server IP
             const copyIpBtn = document.getElementById('copy-ip-btn');
             const serverIp = document.getElementById('server-ip').textContent;
             const copyTag = document.getElementById('copy-tag');
@@ -821,6 +768,7 @@
                 });
             });
 
+            // Mod Category Filter Tabs
             const filterBtns = document.querySelectorAll('.filter-btn');
             const modCards = document.querySelectorAll('.mod-card');
 
@@ -841,18 +789,6 @@
                     });
                 });
             });
-
-            const fadeElements = document.querySelectorAll('.fade-in');
-            const observer = new IntersectionObserver((entries, obs) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        obs.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.12 });
-
-            fadeElements.forEach(el => observer.observe(el));
         });
     </script>
 </body>
